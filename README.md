@@ -14,7 +14,7 @@ A collection of Python RAG (Retrieval-Augmented Generation) projects focused on:
 Each project in this repository was built to practice real RAG system design through hands-on development instead of only theoretical learning.
 
 ==================================================
-📂 FOLDER: Root
+📂 FOLDER: projects
 📦 PROJECT 01 — family_ai.py
 ==================================================
 
@@ -54,7 +54,7 @@ LEARNING FOCUS:
 - Secure API key handling with environment variables
 
 ==================================================
-📂 FOLDER: Root
+📂 FOLDER: projects
 📦 PROJECT 02 — pdfvault.py
 ==================================================
 
