@@ -32,7 +32,8 @@ if collection.count() == 0 :
                     extra_safety_last_word.append(last_word_text)
                     chunks.append(chunk_text)
                     starting+=200
-            for i in range(len(extra_safety_last_word)):
+            print(chunks)
+            for i in range(len(extra_safety_last_word)-1):
                     chunks[i+1] += extra_safety_last_word[i]
             ids_v = [f"{i}" for i in range((len(full_page_data)+1))]
             collection.add(
@@ -42,8 +43,7 @@ if collection.count() == 0 :
             )
 
 groq_client = Groq(api_key=(os.getenv("GROQ_API_KEY")))
-print("\n Type stop in You for exit \n")
-print(collection.count())
+print("\nType stop in You for exit \n")
 
 while True:
 
@@ -52,10 +52,9 @@ while True:
                 break
        result = collection.query(
                query_texts=[query],
-               n_results=1
+               n_results=3
        )
-       chunk = result["documents"][0][0]
-       print(chunk)
+       chunk = result["documents"][0]
        message = groq_client.chat.completions.create(
                model="llama-3.3-70b-versatile",
                max_tokens=1024,
