@@ -32,9 +32,8 @@ if collection.count() == 0 :
                     extra_safety_last_word.append(last_word_text)
                     chunks.append(chunk_text)
                     starting+=200
-            print(chunks)
             for i in range(len(extra_safety_last_word)-1):
-                    chunks[i+1] += extra_safety_last_word[i]
+                    chunks[i+1] = extra_safety_last_word[i] + chunks[i+1]
             ids_v = [f"{i}" for i in range((len(full_page_data)+1))]
             collection.add(
                     documents=chunks,
@@ -46,7 +45,7 @@ groq_client = Groq(api_key=(os.getenv("GROQ_API_KEY")))
 print("\nType stop in You for exit \n")
 
 while True:
-
+      
        query = str(input("YOU : "))
        if "stop" in query.lower():
                 break
